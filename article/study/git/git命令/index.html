@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Git初级 &middot; ShellingfordLY</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://shellingfordly.github.io/"><h1>ShellingfordLY</h1></a>
+      <p class="lead">
+       这里是ShellingfordLY的个人博客 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://shellingfordly.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Git初级</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
+
+<h1 id="git操作">git操作</h1>
+
+<hr />
+
+<h2 id="1-1-git-init">1.1 $ git init</h2>
+
+<p>在项目中安装git</p>
+
+<h2 id="2-1-git-add-index-html">2.1 $ git add index.html</h2>
+
+<p>提交index.html文件</p>
+
+<h2 id="2-2-git-add">2.2 $ git add .</h2>
+
+<p>提交所有文件夹内的所有文件</p>
+
+<h2 id="3-1-配置">3.1 配置</h2>
+
+<ul>
+<li>\$ git config &ndash;global user.email &ldquo;you@example.com&rdquo;</li>
+<li>$ git config &ndash;global user.name &ldquo;yourname&rdquo;</li>
+</ul>
+
+<h2 id="3-2-git-commit-m-新增了一个xxx文件">3.2 $ git commit -m &ldquo;新增了一个XXX文件&rdquo;</h2>
+
+<p>提交放在分支中</p>
+
+<h2 id="4-1-git-remote-add-origin-xxx">4.1 $ git remote add origin xxx</h2>
+
+<p>推送到远程仓库之前，先关联本地和远程仓库，xxx建议使用ssh路径，http路径需要登录</p>
+
+<h2 id="4-2-git-push-origin-master">4.2 $ git push origin master</h2>
+
+<p>推送到远程仓库&mdash;&gt; yes，需要权限&mdash;&gt;获取权限</p>
+
+<h2 id="4-3-ssh-keygen-t-rsa-c-you-example-com">4.3 $ ssh-keygen -t rsa -C &ldquo;you@example.com&rdquo;</h2>
+
+<p>一路回车获取密钥</p>
+
+<h2 id="5-1-打开id-rsa-pub">5.1 打开id_rsa.pub</h2>
+
+<p>回到github&mdash;&gt;setting&mdash;&gt;SSH&mdash;&gt;new SSH key&mdash;&gt;将id_rsa.pub里的密钥复制到key中</p>
+
+<h2 id="5-2-git-pull-origin-master">5.2 \$ git pull origin master</h2>
+
+<ul>
+<li>当github中的仓库中被操作过时，先\$ git pull将仓库中的所有分子拉取下来</li>
+<li>$ git pull origin master将master分子pull下来</li>
+<li>此操作的目的是为了将被修改过的远程仓库pull拉取到本地仓库来，让本地仓库完全等于远程仓库</li>
+<li>pull拉取时出现一个奇怪的界面时操作i&ndash;esc&ndash;:wq退出</li>
+</ul>
+
+<h2 id="5-3-pull结束后再push到github上去">5.3 pull结束后再push到github上去</h2>
+
+<h2 id="6-1-git-clone-ssh路径">6.1 $ git clone ssh路径</h2>
+
+<p>将整各仓库的项目克隆下来</p>
+
+<h2 id="7-1-master是主分支">7.1 master是主分支</h2>
+
+<p>当一个项目在开发时，放在分支中</p>
+
+<h2 id="7-2-git-branch-xxx">7.2 $ git branch xxx</h2>
+
+<p>创建xxx分支</p>
+
+<h2 id="7-3-git-branch">7.3 $ git branch</h2>
+
+<p>查看分支</p>
+
+<h2 id="7-4-git-checkout-xxx">7.4 $ git checkout xxx</h2>
+
+<p>切换到xxx分支</p>
+
+<h2 id="7-5-git-merge-xxx">7.5 $ git merge xxx</h2>
+
+<p>将xxx分支整合到master分支上</p>
+
+<h2 id="7-6-git-branch-d-xxx">7.6 $ git branch -d xxx</h2>
+
+<p>删除xxx分支</p>
+
+<h2 id="8-1-git-log">8.1 $ git log</h2>
+
+<p>可以看到提交的commit信息</p>
+
+<h2 id="8-2-git-reset-hard-commitid">8.2 $ git reset &ndash;hard &ldquo;commitID&rdquo;</h2>
+
+<p>回退到commit的某一个版本</p>
+
+<hr />
+
+<h1 id="hugo静态博客">hugo静态博客</h1>
+
+<p>使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</p>
+
+<ul>
+<li><p>$ hugo new site /path/to/site
+这样就在 /path/to/site 目录里生成了初始站点，进去目录：</p></li>
+
+<li><p>$ cd /path/to/site
+站点目录结构：
+    ▸ archetypes/
+    ▸ content/
+    ▸ layouts/
+    ▸ static/
+        config.toml
+创建文章
+创建一个 about 页面：</p></li>
+
+<li><p>$ hugo new about.md
+about.md 自动生成到了 content/about.md ，打开 about.md 看下：</p>
+
+<pre><code>date = &quot;2015-10-25T08:36:54-07:00&quot;
+draft = true
+title = &quot;about&quot;
+</code></pre></li>
+
+<li><p>正文内容
+创建第一篇文章，放到 post 目录，方便之后生成聚合页面。</p></li>
+
+<li><p>$ hugo new post/first.md
+打开编辑 post/first.md ：</p>
+
+<pre><code>date: &quot;2015-10-25T08:36:54-07:00&quot;
+title: &quot;first&quot;
+</code></pre></li>
+</ul>
+
+<h2 id="hello-hugo">Hello Hugo</h2>
+
+<ul>
+<li>安装皮肤  创建目录 themes，在 themes 目录里把皮肤 git clone 下来</li>
+</ul>
+
+<h3 id="创建-themes-目录">创建 themes 目录</h3>
+
+<ul>
+<li><p>$ cd themes
+$ git clone <a href="https://github.com/spf13/hyde.git">https://github.com/spf13/hyde.git</a>
+运行Hugo
+在你的站点根目录执行 Hugo 命令进行调试：</p>
+
+<p>$ hugo server &ndash;theme=hyde &ndash;buildDrafts</p>
+
+<p>浏览器里打开： <a href="http://localhost:1313">http://localhost:1313</a></p></li>
+</ul>
+
+<h3 id="部署">部署</h3>
+
+<p>在站点根目录执行 Hugo 命令生成最终页面：</p>
+
+<p>$ hugo &ndash;theme=hyde &ndash;baseUrl=&ldquo;<a href="http://coderzh.github.io/&quot;">http://coderzh.github.io/&quot;</a>
+（注意，以上命令并不会生成草稿页面，如果未生成任何文章，请去掉文章头部的 draft=true 再重新生成。）</p>
+
+<p>如果一切顺利，所有静态页面都会生成到 public 目录，将pubilc目录里所有文件 push 到刚创建的Repository的 master 分支。</p>
+
+<ul>
+<li>$ cd public</li>
+<li>$ git init</li>
+<li>$ git remote add origin <a href="https://github.com/coderzh/coderzh.github.io.git">https://github.com/coderzh/coderzh.github.io.git</a></li>
+<li>$ git add -A</li>
+<li>$ git commit -m &ldquo;first commit&rdquo;</li>
+<li>$ git push -u origin master</li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

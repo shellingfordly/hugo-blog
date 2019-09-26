@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JS初级one &middot; ShellingfordLY</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://shellingfordly.github.io/"><h1>ShellingfordLY</h1></a>
+      <p class="lead">
+       这里是ShellingfordLY的个人博客 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://shellingfordly.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>JS初级one</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
+
+<h1 id="js">JS</h1>
+
+<hr />
+
+<h2 id="console的其他方法">console的其他方法</h2>
+
+<h3 id="1-console-log">1. console.log()</h3>
+
+<h3 id="2-console-dir">2. console.dir()</h3>
+
+<h3 id="3-console-error">3. console.error()</h3>
+
+<p>以红色报错的形式输出</p>
+
+<h3 id="4-console-time-tag-console-timeend-tag">4. console.time(&ldquo;tag&rdquo;); console.timeEnd(&ldquo;tag&rdquo;)</h3>
+
+<p>设定一个tag标记点，打印之间代码执行时间，误差很大</p>
+
+<h3 id="5-console-assert">5. Console.assert()</h3>
+
+<p>判断第一个参数是否为真，false的话抛出异常并且在控制台输出相应信息。</p>
+
+<h3 id="6-console-clear">6. Console.clear()</h3>
+
+<p>清空控制台。</p>
+
+<h3 id="7-console-count">7. Console.count()</h3>
+
+<p>以参数为标识记录调用的次数，调用时在控制台打印标识以及调用次数。</p>
+
+<h3 id="8-console-debug">8. Console.debug()</h3>
+
+<p>console.log方法的别称，使用方法可以参考Console.log()</p>
+
+<h3 id="9-console-dir">9. Console.dir()</h3>
+
+<p>打印一条以三角形符号开头的语句，可以点击三角展开查看对象的属性。</p>
+
+<h3 id="10-console-dirxml">10. Console.dirxml()</h3>
+
+<p>如果可以，打印 XML/HTML 元素表示的指定对象，或者 JavaScript 对象视图。</p>
+
+<h3 id="11-console-error">11. Console.error()</h3>
+
+<p>打印一条错误信息，使用方法可以参考 string substitution。</p>
+
+<h3 id="12-console-exception">12. Console._exception()</h3>
+
+<p>error方法的别称，使用方法参考Console.error()</p>
+
+<h3 id="13-console-group">13. Console.group()</h3>
+
+<p>打印树状结构，配合groupCollapsed以及groupEnd方法;</p>
+
+<h3 id="14-console-groupcollapsed">14. Console.groupCollapsed()</h3>
+
+<p>创建一个新的内联 group。使用方法和group相同，不同的是groupCollapsed打印出来的内容默认是折叠的。</p>
+
+<h3 id="15-console-groupend">15. Console.groupEnd()</h3>
+
+<p>结束当前Tree</p>
+
+<h3 id="16-console-info">16. Console.info()</h3>
+
+<p>打印以感叹号字符开始的信息，使用方法和log相同</p>
+
+<h3 id="17-console-log">17. Console.log()</h3>
+
+<p>打印字符串，使用方法比较类似C的printf格式输出，可参考 string substitution 。</p>
+
+<h3 id="18-console-profile">18. Console.profile()</h3>
+
+<p>可以以第一个参数为标识，开始javascript执行过程的数据收集。和chrome控制台选项开Profiles比较类似，具体可参考chrome profiles</p>
+
+<h3 id="19-console-profileend">19. Console.profileEnd()</h3>
+
+<p>配合profile方法，作为数据收集的结束。</p>
+
+<h3 id="20-console-table">20. Console.table()</h3>
+
+<p>将数据打印成表格。Console.table [en-US]</p>
+
+<h3 id="21-console-time">21. Console.time()</h3>
+
+<p>计时器，接受一个参数作为标识。</p>
+
+<h3 id="22-console-timeend">22. Console.timeEnd()</h3>
+
+<p>接受一个参数作为标识，结束特定的计时器。</p>
+
+<h3 id="23-console-timestamp">23. Console.timeStamp()</h3>
+
+<p>添加一个标记到浏览器的 Timeline 或 Waterfall 工具.</p>
+
+<h3 id="24-console-trace">24. Console.trace()</h3>
+
+<p>打印stack trace.</p>
+
+<h3 id="25-console-warn">25. Console.warn()</h3>
+
+<p>打印一个警告信息，使用方法可以参考 string substitution。</p>
+
+<hr />
+
+<h2 id="ajax">ajax</h2>
+
+<h3 id="get接收">get接收</h3>
+
+<pre><code>const xhr = new XMLHttpRequest()
+// 发送
+xhr.open(&quot;GET&quot;,URL,true/false)
+// 监听
+xhr.send()
+
+xhr.onload/onreadystatechange = () =&gt; {
+    // 判断ajax本身的状态码
+    if(xhr.readyState === 4){
+        // 判断服务器状态码
+        if( 200 &lt;= xhr.status &amp;&amp; xhr.status &lt; 300 || xhr.status === 304 ){
+            // 请求成功
+            
+            // 服务器返回的数据
+            xhr.responseText
+        }
+    }
+}
+</code></pre>
+
+<h3 id="post发送">post发送</h3>
+
+<pre><code>const xhr = new XMLHttpRequest()
+xhr.open(&quot;POST&quot;,URL,true/false)
+// 请求头
+xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-WWW-form-urlencoded&quot;)
+xhr.send(&quot;user=xxxx&amp;pwd=xxxx&quot;)
+
+xhr.onload/onreadystatechange = () =&gt; {
+    // 判断ajax本身的状态码
+    if(xhr.readyState === 4){
+        // 判断服务器状态码
+        if( 200 &lt;= xhr.status &amp;&amp; xhr.status &lt; 300 || xhr.status === 304 ){
+            // 请求成功
+            
+            // 服务器返回的数据
+            xhr.responseText
+        }
+    }
+}
+
+</code></pre>
+
+<h3 id="jq封装的方法">jq封装的方法</h3>
+
+<pre><code>$.ajax({
+    url : url,
+    // 根据GET/POST自动选择调用参数
+    method : &quot;POST/GET&quot;,
+    data : {
+        user : xxxx,
+        pwd : xxxx
+    },
+    success(data){
+        // 请求成功
+    },
+    error(){
+        // 请求失败
+    }
+})
+</code></pre>
+
+<h2 id="跨域">跨域</h2>
+
+<blockquote>
+<p>浏览器不允许跨域请求
+cors、反向代理、jsonp</p>
+</blockquote>
+
+<ul>
+<li>实现跨域：
+
+<ul>
+<li>通过script的src：属性具备跨域请求资源的能力，JSONP形式</li>
+<li>CORS 在后台程序里，设置可以让对应域进行访问</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2 id="jsonp">jsonp</h2>
+
+<blockquote>
+<p>jsonp是json的一种使用模式
+- 作用：跨域获取数据
+- callback：回调函数</p>
+</blockquote>
+
+<hr />
+
+<h1 id="类库-工具api的集合">类库(工具api的集合)</h1>
+
+<p>jQuery</p>
+
+<h1 id="框架">框架</h1>
+
+<p>vue react</p>
+
+<h1 id="jquery">jQuery</h1>
+
+<h2 id="each-i-v-s">$().each( (i, v, s) =&gt; {} )</h2>
+
+<ul>
+<li>i 序号</li>
+<li>v 值，一个个的对象</li>
+<li>s 自己本身</li>
+</ul>
+
+<h2 id="length">$().length</h2>
+
+<p>长度</p>
+
+<h2 id="xxx-context">\$(&ldquo;xxx&rdquo;, context)</h2>
+
+<p>$(&ldquo;xxx&rdquo;).context指向给的context对象</p>
+
+<h2 id="get-index">\$().get(index)</h2>
+
+<ul>
+<li>$()[index] 转原生对象</li>
+<li>转jq对象 $(原生对象)</li>
+</ul>
+
+<h2 id="index">\$().index()</h2>
+
+<ul>
+<li><p>不传值，返回在父级的下标</p>
+
+<pre><code>&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;
+&lt;p class=&quot;p1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+$(&quot;.p1&quot;).index(); //0
+</code></pre></li>
+</ul>
+
+<h2 id="data">$().data()</h2>
+
+<blockquote>
+<p>h5规定自定义标签属性前加上data</p>
+
+<pre><code>&lt;div data-liuyao=&quot;liuyao&quot;&gt;
+console.log( $(&quot;div&quot;).data(liuyao) ); //liuyao
+</code></pre>
+
+<ul>
+<li>removedata() 移除使用jq添加的属性【没什么卵用】</li>
+</ul>
+</blockquote>
+
+<hr />
+
+<h1 id="jq选择器">jq选择器</h1>
+
+<h2 id="xxx-first">$(&ldquo;xxx:first&rdquo;)</h2>
+
+<p>第一个</p>
+
+<h2 id="xxx-last">$(&ldquo;xxx:last&rdquo;)</h2>
+
+<p>最后一个</p>
+
+<h2 id="xxx-not-xxx">$(&ldquo;xxx:not(XXX)&ldquo;)</h2>
+
+<p>不包括XXX</p>
+
+<h2 id="xxx-even">$(&ldquo;xxx:even&rdquo;)</h2>
+
+<h2 id="xxx-odd">$(&ldquo;xxx:odd&rdquo;)</h2>
+
+<h2 id="xxx-eq-index">$(&ldquo;xxx:eq(index)&ldquo;)</h2>
+
+<p>选择下标为index的</p>
+
+<h2 id="xxx-gt-index">$(&ldquo;xxx:gt(index)&ldquo;)</h2>
+
+<p>选择下标大于index的</p>
+
+<h2 id="xxx-lt-index">$(&ldquo;xxx:lt(index)&ldquo;)</h2>
+
+<p>匹配所有小于给定索引值的元素</p>
+
+<h2 id="xxx-contains-text">$(&ldquo;xxx:contains(text)&ldquo;)</h2>
+
+<p>匹配包含给定文本的元素</p>
+
+<h2 id="xxx-animated">$(&ldquo;xxx:animated&rdquo;)</h2>
+
+<p>匹配所有正在执行动画效果的元素</p>
+
+<h2 id="empty">$(&rdquo;:empty&rdquo;)</h2>
+
+<p>匹配所有不包含子元素或者文本的空元素
+- 换行的选不到，空格换行属于字符</p>
+
+<h2 id="xxx-parent">$(&ldquo;xxx:parent&rdquo;)</h2>
+
+<p>匹配含有子元素或者文本的元素
+- 没有子元素或者没有文本就取不到</p>
+
+<h2 id="xxx-has-xxx">$(&ldquo;xxx:has(XXX)&ldquo;)</h2>
+
+<p>匹配含有XXX的xxx元素</p>
+
+<h2 id="xxx-hidden">$(&ldquo;xxx:hidden&rdquo;)</h2>
+
+<p>匹配所有不可见元素，或者type为hidden的元素</p>
+
+<h2 id="xxx-visible">$(&ldquo;xxx:visible&rdquo;)</h2>
+
+<p>匹配所有的可见元素</p>
+
+<h2 id="xxx-attribute">\$(&ldquo;xxx[attribute]&ldquo;)</h2>
+
+<blockquote>
+<p>匹配包含给定属性的元素，attribute元素的属性
+- \$(&ldquo;xxx[id=div]&ldquo;)
+- \$(&ldquo;xxx[id!=thediv]&ldquo;)
+- \$(&ldquo;xxx[id^=&rsquo;t&rsquo;]&ldquo;)
+- \$(&ldquo;xxx[id$=&lsquo;v&rsquo;]&ldquo;)
+- \$(&ldquo;xxx[id*=&lsquo;edi&rsquo;]&ldquo;)
+- \$(&ldquo;xxx[id][class=&lsquo;box&rsquo;][name]&ldquo;)</p>
+</blockquote>
+
+<h2 id="xxx-checked">$(&ldquo;xxx:checked&rdquo;)</h2>
+
+<p>匹配所有选中的被选中元素</p>
+
+<hr />
+
+<h1 id="jq属性api">jq属性api</h1>
+
+<blockquote>
+<p>处理对象的核心思想：get first / set all</p>
+</blockquote>
+
+<ul>
+<li><p>get(获取)操作默认获取第一个</p>
+
+<pre><code>// 获取第一个class为box的name
+$(&quot;.box&quot;).prop(&quot;name&quot;)
+</code></pre></li>
+
+<li><p>set(设置)操作默认为设置全部</p>
+
+<pre><code>// 设置全部class为box的name为aaa
+$(&quot;.box&quot;).prop(&quot;name&quot;,&quot;aaa&quot;)
+</code></pre></li>
+</ul>
+
+<h2 id="attr">attr</h2>
+
+<ul>
+<li>主要用来操作自定义属性</li>
+<li>类似getAttribute和setAttribute操作</li>
+<li>获取值为布尔值的属性返回布尔值</li>
+<li>而getAttribute和setAttribute在获取checked此类属性是返回checked的值，不一定返回布尔值</li>
+</ul>
+
+<h2 id="prop">prop</h2>
+
+<ul>
+<li>主要用来操作合法属性</li>
+<li>类似obj.id操作</li>
+</ul>
+
+<h2 id="removeattr">removeAttr</h2>
+
+<p>删除自定义属性</p>
+
+<h2 id="removeprop">removeProp</h2>
+
+<p>删除合法属性</p>
+
+<h2 id="addclass">addClass()</h2>
+
+<p>添加class类名</p>
+
+<h2 id="removerclass">removerClass()</h2>
+
+<p>删除class类名</p>
+
+<h2 id="hasclass">hasClass()</h2>
+
+<p>有没有某某class类名</p>
+
+<h2 id="toggleclass">toggleClass()</h2>
+
+<p>没有添加，有则删除</p>
+
+<h2 id="html">html()</h2>
+
+<ul>
+<li>对应innerHTML</li>
+<li>没有参数为取值</li>
+<li>有参数为设置</li>
+</ul>
+
+<h2 id="text">text()</h2>
+
+<ul>
+<li>对应innerText</li>
+<li>没有参数为取值</li>
+<li>有参数为设置</li>
+</ul>
+
+<h2 id="val">val()</h2>
+
+<ul>
+<li>对应value</li>
+<li>没有参数为取值</li>
+<li>有参数为设置</li>
+</ul>
+
+<hr />
+
+<h1 id="jqcssapi">jqCSSapi</h1>
+
+<h2 id="css">css()</h2>
+
+<ul>
+<li><p>获取时取第一个并只能获取一个属性</p>
+
+<pre><code>// 获取高度
+$(&quot;.box&quot;).css(&quot;height&quot;)
+</code></pre></li>
+
+<li><p>整个集合全部设置</p>
+
+<pre><code>$(&quot;.box&quot;).css({
+width : 200,
+heigth : 200,
+backgroundColor : &quot;red&quot;
+})
+</code></pre></li>
+</ul>
+
+<h2 id="offset">offset()</h2>
+
+<p>没参数时返回一个包含元素到(视口)文档顶部(包括未显示的top/left区域，包括margin值)的top/left值得对象</p>
+
+<h2 id="offset-top-num-left-num">$().offset({top: num,left: num})</h2>
+
+<p>当传值的时候，会强制将元素的top/left值变更达到元素距离文档上方、左方的距离只有num值</p>
+
+<h2 id="position">$().position()</h2>
+
+<p>返回一个包含元素到<code>定位父级</code>的top/left值的对象</p>
+
+<h2 id="srolltop">$().srollTop()</h2>
+
+<p>返回当前元素纵向滚动条的高度</p>
+
+<h2 id="srolltop-num">$().srollTop(num)</h2>
+
+<p>当有传值的时候，触发一个事件时，元素纵向滚动条立刻到达设置的num的高度</p>
+
+<h2 id="srollleft">$().srollLeft()</h2>
+
+<p>返回当前元素的高度</p>
+
+<h2 id="srollleft-num">$().srollLeft(num)</h2>
+
+<p>当有传值的时候，触发一个事件时，元素横向滚动条立刻到达设置的num的高度</p>
+
+<h2 id="height">$().height()</h2>
+
+<ul>
+<li>无参数，获取高度</li>
+<li>有参数，设置高度</li>
+</ul>
+
+<h2 id="width">$().width()</h2>
+
+<ul>
+<li>无参数，获取宽度</li>
+<li>有参数，设置宽度</li>
+</ul>
+
+<h2 id="innerheight">$().innerHeight()</h2>
+
+<ul>
+<li>无参数，获取内部区域高度(包括补白、不包括边框)</li>
+<li>对可见和隐藏元素均有效</li>
+</ul>
+
+<h2 id="innerwidth">$().innerWidth()</h2>
+
+<ul>
+<li>无参数，获取内部区域宽度(包括补白、不包括边框)</li>
+<li>此方法对可见和隐藏元素均有效</li>
+</ul>
+
+<h2 id="outerheight">$().outerHeight()</h2>
+
+<ul>
+<li>无参数，获取外部高度(默认包括补白和边框)</li>
+<li>对可见和隐藏元素均有效</li>
+</ul>
+
+<h2 id="outerwidth">$().outerWidth()</h2>
+
+<ul>
+<li>无参数，获取外部宽度(默认包括补白和边框)</li>
+<li>此方法对可见和隐藏元素均有效</li>
+</ul>
+
+<hr />
+
+<h1 id="jq文档处理">jq文档处理</h1>
+
+<h2 id="div-append-p-p">$(&ldquo;div&rdquo;).append(&rdquo;<p></p>&rdquo;)</h2>
+
+<ul>
+<li>向每个匹配的(div)元素内部<code>追加</code>(后面)内容(p标签)</li>
+
+<li><p>这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似</p>
+
+<pre><code>$(&quot;div&quot;).append( (index, html) =&gt; {
+console.log(rest);
+// index 为div的下标
+// html为div的内容
+return &quot;&lt;p&gt;111&lt;/p&gt;&quot;
+})
+// ...rest用()框起来
+$().append( (...rest) =&gt; {
+console.log(rest);
+//
+return &quot;&lt;p&gt;111&lt;/p&gt;&quot;
+})
+</code></pre></li>
+</ul>
+
+<h2 id="div-prepend-p-p">$(&ldquo;div&rdquo;).prepend(&rdquo;<p></p>&rdquo;)</h2>
+
+<ul>
+<li>向每个匹配的(div)元素内部的最前面添加内容(p标签)</li>
+</ul>
+
+<h2 id="p-appendto-div">$(&ldquo;p&rdquo;).appendTo(&ldquo;div&rdquo;)</h2>
+
+<ul>
+<li>会把原始的p移除</li>
+<li>把所有的p标签(包括内容)放入每一个div中</li>
+</ul>
+
+<h2 id="div-after-p-p">$(&ldquo;div&rdquo;).after(&rdquo;<p></p>&rdquo;)</h2>
+
+<ul>
+<li>向每个匹配的(div)元素的后面添加内容(p标签)</li>
+</ul>
+
+<h2 id="p-p-insertafter-div">$(&rdquo;<p></p>&rdquo;).insertAfter(&ldquo;div&rdquo;)</h2>
+
+<ul>
+<li>把(p标签)内容添加到匹配的(div)元素后面</li>
+<li>与after一样</li>
+</ul>
+
+<h2 id="div-before-p-p">$(&ldquo;div&rdquo;).before(&rdquo;<p></p>&rdquo;)</h2>
+
+<ul>
+<li>向每个匹配的(div)元素的前面添加内容(p标签)</li>
+<li>与after相反</li>
+</ul>
+
+<h2 id="p-p-insertbefore-div">$(&rdquo;<p></p>&rdquo;).insertBefore(&ldquo;div&rdquo;)</h2>
+
+<ul>
+<li>把(p标签)内容添加到匹配的(div)元素前面</li>
+<li>与before一样</li>
+<li>与insertAfter相反</li>
+</ul>
+
+<h2 id="p-wrap-div-class-father-div">$(&ldquo;p&rdquo;).wrap(&rdquo;<div class="father"></div>&rdquo;)</h2>
+
+<ul>
+<li>向匹配的(p)元素每一个都添加一个父级div</li>
+<li>&ldquo;认爹&rdquo;</li>
+</ul>
+
+<h2 id="p-unwrap">$(&ldquo;p&rdquo;).unwrap()</h2>
+
+<ul>
+<li>移除匹配的(p)元素的父级</li>
+<li>&ldquo;逝父&rdquo;</li>
+</ul>
+
+<h2 id="p-wrapall">$(&ldquo;p&rdquo;).wrapAll()</h2>
+
+<ul>
+<li>向匹配的所有(p)元素添加同一个父级div</li>
+<li>&ldquo;大家一起认一个爹&rdquo;</li>
+</ul>
+
+<h2 id="div-wrapinner-div-class-father-div">$(&ldquo;div&rdquo;).wrapInner(&rdquo;<div class="father"></div>&rdquo;)</h2>
+
+<ul>
+<li>将每一个匹配的div元素的子内容(包括文本节点)用一个新的div包裹起来</li>
+<li>&ldquo;儿子变孙子&rdquo;</li>
+</ul>
+
+<h2 id="p-replacewith-b-b">$(&ldquo;p&rdquo;).replaceWith(&rdquo;<b></b>&rdquo;)</h2>
+
+<ul>
+<li>将所有匹配的p元素替换成指定的HTML或DOM元素(b标签)</li>
+</ul>
+
+<h2 id="b-b-replaceall-p">$(&rdquo;<b></b>&rdquo;).replaceAll(&ldquo;p&rdquo;)</h2>
+
+<ul>
+<li>用匹配的元素(b标签)替换掉所有匹配到的元素(p标签)</li>
+</ul>
+
+<h2 id="div-empty">$(&ldquo;div&rdquo;).empty()</h2>
+
+<ul>
+<li>把div内的所有元素(包括文本)<code>全部删除</code></li>
+</ul>
+
+<h2 id="p-remove">$(&ldquo;p&rdquo;).remove()</h2>
+
+<ul>
+<li>移除所有匹配的p标签</li>
+<li>&ldquo;自杀，并且所有遗产都没有&rdquo;</li>
+</ul>
+
+<h2 id="p-detach">$(&ldquo;p&rdquo;).detach()</h2>
+
+<ul>
+<li>所有绑定的事件、附加的数据等都会保留下来</li>
+<li>&ldquo;自杀，保留遗产，为了复活&rdquo;</li>
+</ul>
+
+<h2 id="div-clone-true-false">$(&ldquo;div&rdquo;).clone(true/false)</h2>
+
+<ul>
+<li>不传参默认浅克隆，true(深克隆)/false(浅克隆)
+
+<ul>
+<li>与原生不一样</li>
+<li>所有找到的div都会被克隆</li>
+</ul></li>
+<li>与原生cloneNode(true/false)类似
+
+<ul>
+<li>true完全复制(深克隆)</li>
+<li>false只复制标签外表，不包括内容(浅克隆)</li>
+<li>原生克隆不会复制事件(例如click等事件，不管是一级还是二级)</li>
+<li>被克隆对象在script中写所有事件和自定义属性都不会克隆</li>
+<li>行内事件本质上是自执行的，为零级事件，与js内设置的绑定事件不一样；此时onclick相当于写了标签属性，所以写在行内时会克隆这个属性</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2 id="id的唯一性">id的唯一性</h2>
+
+<ul>
+<li>id获取时，只会获取第一个，后面的不管</li>
+<li>但不报错</li>
+</ul>
+
+<hr />
+
+<h1 id="es6">es6</h1>
+
+<h2 id="const-常量">const 常量</h2>
+
+<ul>
+<li>申明的变量不能进行二次等号赋值，再次赋值会操错；</li>
+<li>但引用性数据，例如[]数组,{}json对其添加内容不会报错;</li>
+<li>只是不能改变它的地址指向，它并不是只读的，数组和json添加内容时都没有改变它的地址指向</li>
+</ul>
+
+<h2 id="解构赋值">解构赋值</h2>
+
+<h3 id="toc_109">[] = []/{} = {}</h3>
+
+<pre><code>// 对应赋值
+let [a,b,c] = [1,2,3];
+// 匹配模式，同名赋值
+// 属性匹配，赋值
+let {x: d, y: e,} = {
+    x : 4,
+    y : 5
+}
+// 属性名与值一致时可以简写
+let {d: d,e: e} = {
+    d : 4,
+    e : 5
+};
+let {d,e} = {
+    d : 4,
+    e : 5
+};
+</code></pre>
+
+<h3 id="展开运算符">展开运算符“&hellip;”</h3>
+
+<pre><code>let [...a] = [1,2,3]
+// 将类数组展开转换成真的数组
+let box = [...document.getElementsByTagName(&quot;div&quot;)]
+</code></pre>
+
+<h3 id="惰性求值">惰性求值</h3>
+
+<pre><code>let {a: f = 1} = {
+    a : undefined
+}
+// f = 1
+</code></pre>
+
+<h3 id="默认值">默认值</h3>
+
+<pre><code>function fn(x = 1, y = 2){}
+fn()
+</code></pre>
+
+<h3 id="使用">使用</h3>
+
+<pre><code>let { max, min } = Math;
+max(1,10) // 10
+min(1,10) // 1
+</code></pre>
+
+<pre><code>function fn(obj){
+    let {a,b,c} = obj;
+}
+function fn(arr){
+    let [a,b,c] = arr;
+}
+function fn([a,b,c]){
+}
+let arr = [1,2,3]
+fn(arr)
+// es6中没arguments，不确定传的参数时用...
+function fn(...a){
+}
+</code></pre>
+
+<hr />
+
+<h1 id="es6字符串扩展">es6字符串扩展</h1>
+
+<h2 id="查询-返回布尔值">查询(返回布尔值)</h2>
+
+<h3 id="str-includes-str1-num">str.includes(str1, num)</h3>
+
+<ul>
+<li>str内是否存在str1</li>
+<li>有返回true</li>
+<li>没有返回false</li>
+
+<li><p>num：从什么位置开始</p>
+
+<pre><code>let str = &quot;hello javascript&quot;
+str.includes(&quot;java&quot;) //返回true，存在
+</code></pre></li>
+</ul>
+
+<h3 id="str-startwith-str1-num">str.startWith(str1, num)</h3>
+
+<ul>
+<li>str是否以str1开始</li>
+<li>有返回true</li>
+<li>没有返回false</li>
+
+<li><p>num：从什么位置开始</p>
+
+<pre><code>let str = &quot;hello javascript&quot;
+str.includes(&quot;java&quot;) //返回true，存在
+</code></pre></li>
+</ul>
+
+<h3 id="str-endwith-str1-length">str.endWith(str1, length)</h3>
+
+<ul>
+<li>str是否以str1结束</li>
+<li>有返回true</li>
+<li>没有返回false</li>
+<li>length：选择字符串长度```</li>
+</ul>
+
+<hr />
+
+<h3 id="attributes">attributes</h3>
+
+<blockquote>
+<p>一个节点的所有属性</p>
+</blockquote>
+
+<ul>
+<li>nodeName 属性名</li>
+<li>nodeValue 属性值</li>
+</ul>
+
+<hr />
+
+<h3 id="document-createdocumentfragment">document.createDocumentFragment()</h3>
+
+<blockquote>
+<p>dom标签片段仓库</p>
+</blockquote>
+
+<ul>
+<li>虚拟的dom</li>
+<li>在需要连续添加dom节点时使用</li>
+<li>提高性能</li>
+</ul>
+
+<hr />
+
+<h2 id="回调地狱">回调地狱</h2>
+
+<h2 id="promise-异步操作">Promise(异步操作)</h2>
+
+<p>解决异步回调，但不是最优秀的</p>
+
+<pre><code>Promise(异步操作)
+    .then(回调---1)
+    .then(回调1的回调---2)
+    .then(回调2的回调---3)
+</code></pre>
+
+<pre><code>new Promise( (resolve, reject) =&gt; {
+    // resolve成功
+    // reject失败
+    $.ajax({
+        success(msg){
+            resolve(msg)
+        },
+        error(error){}
+    })
+}).then( (data) =&gt; {
+    // then的第一个参数为resolve(msg)成功的回调函数传的值
+    // 一般接收成功用then
+    $.ajax({
+        success(msg){
+            resolve(msg)
+        },
+        error(error){}
+    })
+}).catch( err =&gt; {
+    // 一般接收失败用catch
+    console.log(err)
+})
+</code></pre>
+
+<h3 id="p-promise-all-new-promise-new-promise-new-promise">p = Promise.all([new Promise, new Promise, new Promise])</h3>
+
+<ul>
+<li>所有成功即成功，返回所有成功参数的数组</li>
+<li>有一个失败即失败，返回第一个失败的结果</li>
+</ul>
+
+<h3 id="p-promise-race-p1-p2-p3">p = Promise.race([p1, p2, p3])</h3>
+
+<ul>
+<li>最先成功的函数的返回的状态就是他的状态</li>
+</ul>
+
+<hr />
+
+<h2 id="async函数">async函数</h2>
+
+<p>es2017提出</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tags &middot; ShellingfordLY</title>
+  <title>SomeQuestion &middot; ShellingfordLY</title>
 
   
   <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
@@ -23,7 +23,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://shellingfordly.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="ShellingfordLY" />
   
 </head>
 
@@ -49,9 +48,60 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <div class="post">
+  <h1>SomeQuestion</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
 
-</ul>
+<h1 id="出现的问题">出现的问题</h1>
+
+<hr />
+
+<p>##css</p>
+
+<p>1、当把span变成block时，span将支持宽高，独占一行，不支持inline-block；</p>
+
+<hr />
+
+<p>##javascript</p>
+
+<p>1、再循环中常用到给某个对象添加index索引，有点类似添加一个角标，然后再后面可以提取它出来</p>
+
+<pre><code>例1 :
+</code></pre>
+
+<pre><code>for (var i = 0; i &lt; oDl.length; i++) {
+    oDl[i].index = i;  //&lt;1&gt;索引
+    oDl[i].onclick = function (){
+        oDl[num].className = ''; //&lt;2&gt;开关
+        this.className = 'on';
+        num = this.index; //&lt;3&gt;更新
+    }
+}
+
+</code></pre>
+
+<pre><code>&lt;1&gt;、给每一个dl添加一个索引值index：
+    &lt;dl index=1&gt;
+    &lt;dl index=2&gt;
+    &lt;dl index=3&gt;
+&lt;2&gt;、当顺序为这样时，点击自己也会把自己关掉，就会导致点击dl里面的任何地方都会把自己关掉，包括dt、dd，所以应该先清空上一个dl的类名，再打开当前的dl：
+    this.className = 'on';
+    oDl[num].className = '';
+&lt;3&gt;、更新num为当前的dl.index，当点击另一个dl时，便会执行oDl[num].className = ''，然后关掉上一个dl。
+</code></pre>
+
+<hr />
+
+<p>2、for循环问题</p>
+
+<p><strong>注意for循环执行结束后 i =最终值</strong></p>
+
+<p>3、arguments代表什么？</p>
+
+</div>
+
+
     </main>
 
     

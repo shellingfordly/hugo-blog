@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Node.js初级one &middot; ShellingfordLY</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://shellingfordly.github.io/"><h1>ShellingfordLY</h1></a>
+      <p class="lead">
+       这里是ShellingfordLY的个人博客 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://shellingfordly.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Node.js初级one</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
+
+<h1 id="node">node</h1>
+
+<hr />
+
+<p>#第一章 认识node.js</p>
+
+<h2 id="一-了解node-js">一、了解node.js</h2>
+
+<blockquote>
+<p>node.js使用了一个事件驱动、非阻塞式I/O的模型，使其轻量又高效。</p>
+</blockquote>
+
+<ul>
+<li>I/O密集</li>
+<li>CPU密集</li>
+</ul>
+
+<blockquote>
+<p>BS 浏览器和后端
+CS 客户端和后端</p>
+</blockquote>
+
+<hr />
+
+<h2 id="二-学习node">二、学习node</h2>
+
+<h3 id="1-引用require">1. 引用require</h3>
+
+<ul>
+<li>缓存：在同一个模块中，第一次引入一个模块时，会有缓存；第二次引用时不会再去调用模块，而是直接使用第一次调用过的模块</li>
+</ul>
+
+<h3 id="2-输出exports">2. 输出exports</h3>
+
+<ul>
+<li>最终输出的是module.exports</li>
+<li>而exports和module.exports是引用关系</li>
+<li>exports指向module.exports</li>
+</ul>
+
+<blockquote>
+<p>导入模块输出的数据
+<1>. 添加属性时使用exports
+<2> 而直接赋值时使用module.exports</p>
+</blockquote>
+
+<pre><code>exports.a = &quot;ly&quot;
+exports = function(){}
+//直接赋值则改变了exports指向，此时得不到exports的值
+</code></pre>
+
+<blockquote>
+<p>模块化编程：不污染全局变量，</p>
+</blockquote>
+
+<pre><code>//这是01.js文件
+//require函数的返回值就是exports对象
+let a = require(&quot;./02.js&quot;)
+console.log(a)
+//运行结果：{n:&quot;刘谣&quot;}
+</code></pre>
+
+<pre><code>//这是02.js
+let n = &quot;刘谣&quot;
+exports.n = n
+</code></pre>
+
+<hr />
+
+<h2 id="三-原生模块">三、原生模块</h2>
+
+<h3 id="1-模块引用">1. 模块引用</h3>
+
+<ul>
+<li>原生模块优先</li>
+<li>不写路径时默认在node原生模块中找</li>
+<li>默认找node_modules里的某个模块中的index.js运行</li>
+</ul>
+
+<h3 id="2-path模块">2. path模块</h3>
+
+<p>（1）路径变量</p>
+
+<ul>
+<li>__dirname 当前目录路径</li>
+<li>__filename 当前文件路径</li>
+</ul>
+
+<p>（2）路径拼接</p>
+
+<ul>
+<li>path.join()
+
+<ul>
+<li>单纯的拼接</li>
+</ul></li>
+<li>path.resolve()
+
+<ul>
+<li>从当前目录出发</li>
+<li>会解析&rdquo;/&ldquo;根目录
+<br /></li>
+</ul></li>
+</ul>
+
+<p>（3）path.relative</p>
+
+<ul>
+<li>得到两个文件之间的相对路径</li>
+</ul>
+
+<p>（4）path.parse</p>
+
+<ul>
+<li>格式化路径</li>
+</ul>
+
+<h3 id="3-url模块">3. url模块</h3>
+
+<ul>
+<li>解析url</li>
+</ul>
+
+<blockquote>
+<p>map数据类型：键 =&gt; 值
+用get取值：map.get(键) = 值</p>
+</blockquote>
+
+<h3 id="4-events模块">4. events模块</h3>
+
+<p>(1) EventEmitter类</p>
+
+<pre><code>const EventEmitter = require(&quot;events&quot;).EventEmitter
+let x = new EventEmitter
+//绑定事件
+x.on(&quot;fn&quot;,()=&gt;{})
+//解绑事件
+x.off(&quot;fn&quot;)
+//触发事件
+x.emit(&quot;fn&quot;) 
+</code></pre>
+
+<p>(2) newListener事件</p>
+
+<ul>
+<li>绑定后就会触发，不需要手动触发</li>
+<li>新增监听器时触发</li>
+</ul>
+
+<p>(3) removeListener</p>
+
+<ul>
+<li>移除监听器时触发</li>
+</ul>
+
+<hr />
+
+<h2 id="四-文件操作">四、文件操作</h2>
+
+<h3 id="1-fs-readfile">1. fs.readFile(&ldquo;&rdquo;)</h3>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

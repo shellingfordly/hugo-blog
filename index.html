@@ -11,10 +11,10 @@
   <title>ShellingfordLY</title>
 
   
-  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.iocss/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.iocss/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.iocss/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.iocss/hyde.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -31,7 +31,7 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://shellingfordly.github.io"><h1>ShellingfordLY</h1></a>
+      <a href="http://shellingfordly.github.io/"><h1>ShellingfordLY</h1></a>
       <p class="lead">
        这里是ShellingfordLY的个人博客 
       </p>
@@ -39,8 +39,8 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="http://shellingfordly.github.io">Home</a> </li>
-        <li><a href="/abouthugo/"> AboutHugo </a></li>
+        <li><a href="http://shellingfordly.github.io/">Home</a> </li>
+        
       </ul>
     </nav>
 
@@ -52,26 +52,240 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
-    <a href="http://shellingfordly.github.io/node.js/nodo%E5%88%9D%E7%BA%A7/">Nodo初级</a>
+    <a href="http://shellingfordly.github.io/article/study/css/css-one/">CSS初级</a>
   </h1>
   <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
-	<div class="my-article">第一章 认识node.js 一、了解node.js  node.js使用了一个事件驱动、非阻塞式I/O的模型，使其轻量又高效。
+	<div class="my-article"> css 视口    initial-scale 初始比列 minimum-scale 允许缩放的最小比例 maximum-scale 允许缩放的最大比例 user-scalable 是否允许缩放(yes/no || 1&frasl;0)   兼容： 自适应em/rem 当网页窗口小于500px时改变
+@media screen and (min-width:500px){ html { font-size: 100px; } }  使用js获取窗口宽度
+let html = document.querySelector(&quot;html&quot;); changeRem(); window.addEventListener(&quot;resize&quot;,changeRem); function changeRem(){ //获取设备宽度 let width = html.getBoundingClientRect().width; html.style.fontSize = width/10 + &quot;px&quot;; }  </div>	
+		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/git/git%E5%91%BD%E4%BB%A4/">Git初级</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">git操作 1.1 $ git init 在项目中安装git
+2.1 $ git add index.html 提交index.html文件
+2.2 $ git add . 提交所有文件夹内的所有文件
+3.1 配置  \$ git config &ndash;global user.email &ldquo;you@example.com&rdquo; $ git config &ndash;global user.name &ldquo;yourname&rdquo;  3.2 $ git commit -m &ldquo;新增了一个XXX文件&rdquo; 提交放在分支中
+4.1 $ git remote add origin xxx 推送到远程仓库之前，先关联本地和远程仓库，xxx建议使用ssh路径，http路径需要登录
+4.2 $ git push origin master 推送到远程仓库&mdash;&gt; yes，需要权限&mdash;&gt;获取权限
+4.3 $ ssh-keygen -t rsa -C &ldquo;you@example.com&rdquo; 一路回车获取密钥
+5.1 打开id_rsa.pub 回到github&mdash;&gt;setting&mdash;&gt;SSH&mdash;&gt;new SSH key&mdash;&gt;将id_rsa.</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/git/git%E5%91%BD%E4%BB%A4/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/javascript/%E5%85%B3%E4%BA%8Edom/">JS-DOM</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">DOM(document object model)文档对象模型 文档对象模型是表示和操作HTML、XML文档内容的基础API
+当网页被加载时，浏览器会根据DOM模型将文档解析成一系列节点，构成了一个树状结构。
+图中每一个方框都是一个节点，表示一个node对象，所有的node构成了DOM Tree
+节点有7个类型  Document：整个文档树的顶层节点 DocumentType：比如&lt;!DOCTYPE html&gt; Element：网页的各种HTML标签 Attribute：网页元素的属性 Text：标签之间或标签包含的文本 Comment：注释 DocumentFragment：文档片段  通过CSS选择器选取元素 document.querySelectorAll('.div'); //选择所有class为div的元素 document.querySelectorAll('[data-tip=&quot;title&quot;]'); //选择所有data-tip为title的元素 document.querySelectorAll('div:not(.ignore)'); //选择所有claa不为ignore的div元素  不支持伪元素的选择器，比如：first-line和first-letter；也不支持伪类的选择器，比如：link和：visited。
+文档结构的遍历  Document对象、它的Element对象和文档中表示文本的Text对象都是Node对象。
+ Node属性：  parentNode  作为元素树遍历，只遍历Element对象，不包含Text和Comment对象 - children：返回NodeList对象，children列表只包含Element对象。（下同） - nextElementChild、lastElementChild - nextElementSibling、previousElementChild - childElementCount：返回子元素数量，同children.length - offsetParent：返回最靠近当前元素的父元素，且此父元素position不为static
+作为节点树遍历，因此会有Text和Comment对象。@不推荐🤮 - childNodes：返回只读类数组对象(NodeList对象)，包含Text和Comment。 - firstChild、lastChild：分别返回第一个子节点、最后一个子节点，同样包含Text和Comment - nextSibling、previousSibling：分别返回下一个兄弟节点、前一个兄弟节点，包含Text和Comment - textContent：返回该节点和它所有后代节点的文本内容 - nodeType：返回该节点类型代号-number - nodeName：返回该节点类型名称-string - nodeValue：返回Text和Comment的文本内容，其他类型的节点将返回null
+NodeList和HTMLCollection NodeList实例对象可能是动态集合也可能是静态集合。DOM Tree 每新增或删除一个节点，都可以反映在NodeList接口中。NodeList实例对象提供length属性和数字索引，但不能使用pop（）、push（）之类数组特有的方法。
+HTMLCollection实例对象同NodeList实例对象，也是节点的集合，返回类数组对象。
+HTMLDocument类中，有一些属性可以快捷访问节点。比如images、forms、links属性指向类数组、、元素集合，返回的都是HTMLCollection实例对象。
+graph LR A(HTMLDocument类)--&gt;B(.</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/javascript/%E5%85%B3%E4%BA%8Edom/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/javascript/%E5%88%9D%E5%AD%A6js-one/">JS初级one</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">JS console的其他方法 1. console.log() 2. console.dir() 3. console.error() 以红色报错的形式输出
+4. console.time(&ldquo;tag&rdquo;); console.timeEnd(&ldquo;tag&rdquo;) 设定一个tag标记点，打印之间代码执行时间，误差很大
+5. Console.assert() 判断第一个参数是否为真，false的话抛出异常并且在控制台输出相应信息。
+6. Console.clear() 清空控制台。
+7. Console.count() 以参数为标识记录调用的次数，调用时在控制台打印标识以及调用次数。
+8. Console.debug() console.log方法的别称，使用方法可以参考Console.log()
+9. Console.dir() 打印一条以三角形符号开头的语句，可以点击三角展开查看对象的属性。
+10. Console.dirxml() 如果可以，打印 XML/HTML 元素表示的指定对象，或者 JavaScript 对象视图。
+11. Console.error() 打印一条错误信息，使用方法可以参考 string substitution。
+12. Console._exception() error方法的别称，使用方法参考Console.error()
+13. Console.group() 打印树状结构，配合groupCollapsed以及groupEnd方法;
+14. Console.groupCollapsed() 创建一个新的内联 group。使用方法和group相同，不同的是groupCollapsed打印出来的内容默认是折叠的。
+15. Console.groupEnd() 结束当前Tree
+16. Console.info() 打印以感叹号字符开始的信息，使用方法和log相同
+17. Console.log() 打印字符串，使用方法比较类似C的printf格式输出，可参考 string substitution 。
+18. Console.profile() 可以以第一个参数为标识，开始javascript执行过程的数据收集。和chrome控制台选项开Profiles比较类似，具体可参考chrome profiles
+19. Console.profileEnd() 配合profile方法，作为数据收集的结束。</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/javascript/%E5%88%9D%E5%AD%A6js-one/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/javascript/%E5%88%9D%E5%AD%A6js-two/">JS初级three</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">JavaScript 判断数据类型 1、if条件的数据类型  true/false
+为false的 : false &ldquo; 0 null underfined NaN
+  三目运算（适合 if else） &gt; 表达式是否成立 ? 成立输出1 ： 不成立输出2 ; &gt; var a = 0 ; &gt; a == 0 ? a = 1 : a = -1 ; &gt; 等价于 a = a == 0 ? 1 : -1 ;  2、switch语句 switch(){ case 1: 输出1； break； case 2： 输出2； break； default： 输出其他； break； }  3、自增自减 后自增：先赋值后自增（自减同理）</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/javascript/%E5%88%9D%E5%AD%A6js-two/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/javascript/%E5%88%9D%E5%AD%A6js-three/">JS初级two</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">JS 一、变量的两种声明方式  var：声明所有的数据类型 【变量什么都可以存】
+ function：专门用来声明函数 【函数也是一种变量】
+① 有名函数 function fn(){}  ② 匿名函数 function (){} 直接这样写是会报错的，匿名函数必须付给某个对象（变量或者事件）
+③ 函数的声明 A. 函数的声明
+function fn(){}  B. 函数表达式
+var fn = function(){}  ④ 函数的执行方式 A. 自执行 加括号 B. 被动执行
+ 注意： 变量不一定是函数，但是函数名可以叫做变量 这里的fn可以叫 函数fn ，也可以叫 变量fn function fn(){}
+ 二、对属性的操作 1、获取属性 getAttribute(&lsquo;属性名&rsquo;)
+2、修改属性 setAttribute(&lsquo;属性名&rsquo;,&lsquo;值&rsquo;)
+3、删除属性 removeAttribute(&lsquo;属性名&rsquo;)
+4、判断属性是否存在 hasAttribute(&lsquo;属性名&rsquo;)
+三、数据类型 1、数字类型 number
+2、string类型 字符串只是数据，不是类型，所有带引号包裹的都是字符串，字符串的类型为string类型
+3、boolean类型 布尔值 true/false
+4、undefined 未定义，没有值，系统默认给的值
+5、null 空，空的指针对象，表示没有对象，这里不该有值</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/javascript/%E5%88%9D%E5%AD%A6js-three/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/markdown/md%E5%AE%98%E6%96%B9%E4%BB%8B%E7%BB%8D/">Markdown官方文档</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">欢迎使用 Cmd Markdown 编辑阅读器 我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，Cmd Markdown 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：
+  整理知识，学习笔记 发布日记，杂文，所见所想 撰写发布技术文稿（代码支持） 撰写发布学术论文（LaTeX 公式支持）   除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：
+Windows/Mac/Linux 全平台客户端  请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的  新文稿 或者使用快捷键 Ctrl+Alt+N。
+ 什么是 Markdown Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，粗体 或者 斜体 某些文字，更棒的是，它还可以
+1. 制作一份待办事宜 Todo 列表 支持以 PDF 格式导出文稿 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率 新增 Todo 列表功能 修复 LaTex 公式渲染问题 新增 LaTex 公式编号功能  2. 书写一个质能守恒公式1 $$E=mc^2$$
+3. 高亮一段代码2 @requires_authorization class SomeClass: pass if __name__ == '__main__': # A comment print 'hello world'  4.</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/markdown/md%E5%AE%98%E6%96%B9%E4%BB%8B%E7%BB%8D/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/markdown/md%E6%A0%87%E8%AE%B0/">md标签</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article"> 笔记标签 一、黄色高亮标签  span style=&rdquo; display: inline-block; background: yellow; border-radius: 5px; padding: 2px; margin: 5px 20px 0 0; &ldquo;
+ 二、红色注意事项标签  font style=&rdquo; font-size: 30px;&rdquo; color=&lsquo;red&rsquo;
+ 三、蓝色例题标签  font style=&rdquo; font-size: 30px;&rdquo; color=&lsquo;blue&rsquo;
+ </div>	
+		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/node.js/%E5%88%9D%E5%AD%A6node-one/">Node.js初级one</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">node #第一章 认识node.js
+一、了解node.js  node.js使用了一个事件驱动、非阻塞式I/O的模型，使其轻量又高效。
   I/O密集 CPU密集   BS 浏览器和后端 CS 客户端和后端
  二、学习node 1. 引用require  缓存：在同一个模块中，第一次引入一个模块时，会有缓存；第二次引用时不会再去调用模块，而是直接使用第一次调用过的模块  2. 输出exports  最终输出的是module.exports 而exports和module.exports是引用关系 exports指向module.exports   导入模块输出的数据 . 添加属性时使用exports  而直接赋值时使用module.exports
  exports.a = &quot;ly&quot; exports = function(){} //直接赋值则改变了exports指向，此时得不到exports的值   模块化编程：不污染全局变量，
  //这是01.js文件 //require函数的返回值就是exports对象 let a = require(&quot;./02.js&quot;) console.log(a) //运行结果：{n:&quot;刘谣&quot;}  //这是02.js let n = &quot;刘谣&quot; exports.n = n  三、原生模块 1. 模块引用  原生模块优先 不写路径时默认在node原生模块中找 默认找node_modules里的某个模块中的index.</div>	
 		
   <div class="read-more-link">
-    <a href="/node.js/nodo%E5%88%9D%E7%BA%A7/">Read More…</a>
+    <a href="/article/study/node.js/%E5%88%9D%E5%AD%A6node-one/">Read More…</a>
   </div>
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="http://shellingfordly.github.io/abouthugo/">AboutHugo</a>
+    <a href="http://shellingfordly.github.io/article/study/node.js/%E5%88%9D%E5%AD%A6node-two/">Node.js初级three</a>
   </h1>
-  <time datetime="2019-09-26T10:47:14&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
-	<div class="my-article"> hugo </div>	
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">连接远程服务器 mac使用自带终端。
+window使用Xshell第三方工具，Xshell连接方式看菜鸟教程
+mac为例：
+#终端输入以下命令 回车(输入本机密码) sudo su - #然后输入 ssh -p 端口号(ssh端口号是22) 服务器用户名(默认root)@服务器公网ip 例如 ssh -p 22 root@47.92.153.88 #然后回车 输入yes确认 回车 #然后输入服务器密码 #然后看到类似：[root@iz8vb34affxrx2bxh3qwz1z ~]# 表示登录成功  安装nodejs 安装 # 复制回车就行 wget https://nodejs.org/dist/v10.8.0/node-v10.8.0-linux-x64.tar.xz #回车，等待安装成功  解压 tar xvf node-v10.7.0-linux-x64.tar.xz  移动 # mv命令移动并改名 mv node-v10.7.0-linux-x64 /usr/local/node  配置命令 vi ~/.bash_profile # 在 ~/.bash_profile 回车打开的文件里按 i 编辑，然后在文件的export PATH前一行添加 PATH=$PATH:/usr/local/node/bin # 然后退出保存文件 :wq # 运行 source ~/.bash_profile # node -v npm -v 查看node和npm命令是否配置成功  到此nodejs安装成功</div>	
 		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/node.js/%E5%88%9D%E5%AD%A6node-three/">Node.js初级two</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">node.js 关于node  node没有window、document global是顶层对象  require() 导入模块
+ 可以自己定义想要导出的变量 每个模块的变量不对外公开  导入本地文件  必须加“./” .js可以省略
+const obj = require(&quot;./2.js&quot;) // .js可以省略，一样 const obj = require(&quot;./2&quot;)  // 运行index.js文件 node index   nodejs执行顺序  执行过程：执行script(全部代码)，清空micro-task队列；执行setInterval，清空micro-task队列；执行setTimeout，清空micro-task队列；执行setImmediate，清空micro-task队列；
+  有优先级 process.nextTick &gt; Promise().then &gt; setTimeout/setInterval &gt; setImmediate macro-task  script(全部代码) setInterval setTimeout setImmediate  setTimeout和setInterval优先级一样，谁先注册先执行谁 micro-task  process.nextTick Promise().then    npm  node的包管理器
+ 命令  初始化  npm init 初始化 npm init -y 默认初始化，全部默认设置，不需要设置，不需要写项目名字等等 删除包  注册  npm login 登录 npm adduser 注册 npm publish 上传至npm官网 npm unpublish &ndash;force 删除  安装  npm install 安装 npm install -g 全局安装 npm i koa &ndash;save 上线需要用的 npm i koa\@7.</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/node.js/%E5%88%9D%E5%AD%A6node-three/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/python/%E5%88%9D%E5%AD%A6python/">Python初级</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">python学习 基础 list  有序集合，类似数组
+ len()  获取长度
+ names = [&quot;ly&quot;,&quot;zf&quot;,&quot;cjq&quot;,&quot;yq&quot;] len(names) // 3  方法  names.[i] 获取 names.append(&ldquo;wzl&rdquo;) 在末尾添加 names.insert(1, &ldquo;dj&rdquo;) 在下标为1插入 names.pop() 删除最后一个 names.pop(i) 删除第i个  tuple  与list类似，不能修改，元素必须被确定下来
+  被固定的只是指向 内容可以被修改，只要指向不变  定义 t = (1, 2, 3) t = () // 定义一个元素时 t = (1, )  if if xxx: xxx elif xxx: xxx else: xxx  input()  input()返回的类型是string  for for x in [1,2,3]: xxx  range()  生成一个整数序列</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/python/%E5%88%9D%E5%AD%A6python/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/question/%E9%97%AE%E9%A2%98/">SomeQuestion</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">出现的问题 ##css
+1、当把span变成block时，span将支持宽高，独占一行，不支持inline-block；
+##javascript
+1、再循环中常用到给某个对象添加index索引，有点类似添加一个角标，然后再后面可以提取它出来
+例1 :  for (var i = 0; i &lt; oDl.length; i++) { oDl[i].index = i; //&lt;1&gt;索引 oDl[i].onclick = function (){ oDl[num].className = ''; //&lt;2&gt;开关 this.className = 'on'; num = this.index; //&lt;3&gt;更新 } }  &lt;1&gt;、给每一个dl添加一个索引值index： &lt;dl index=1&gt; &lt;dl index=2&gt; &lt;dl index=3&gt; &lt;2&gt;、当顺序为这样时，点击自己也会把自己关掉，就会导致点击dl里面的任何地方都会把自己关掉，包括dt、dd，所以应该先清空上一个dl的类名，再打开当前的dl： this.className = 'on'; oDl[num].className = ''; &lt;3&gt;、更新num为当前的dl.index，当点击另一个dl时，便会执行oDl[num].className = ''，然后关掉上一个dl。  2、for循环问题
+注意for循环执行结束后 i =最终值
+3、arguments代表什么？</div>	
+		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/vue/%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6/">Vue</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article"> 在vue实例中获取本地文件数据 methods: { readFile(filePath) { // 创建一个新的xhr对象 let xhr = null if (window.XMLHttpRequest) { xhr = new XMLHttpRequest() } else { // eslint-disable-next-line xhr = new ActiveXObject('Microsoft.XMLHTTP') } const okStatus = document.location.protocol === 'file' ? 0 : 200 xhr.open('GET', filePath, false) xhr.overrideMimeType('text/html;charset=utf-8') xhr.send(null) return xhr.status === okStatus ? xhr.responseText : null }, }, created() { this.msg = this.readFile('./xxx/xxx/xxx.xxx') console.log(this.msg) } &lt;!-- 参考原博主：SilenceJude 参考原博文链接：https://blog.csdn.net/SilenceJude/article/details/97002176 --&gt;  </div>	
+		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/webpack/webpack%E5%91%BD%E4%BB%A4/">Webpack</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article"> webpack 命令 cnpm i &ndash;save xxx  &ndash;save：安装的xxx包/模块上线的时候需要使用，简写-S &ndash;save-dev：安装的xxx包仅开发时候使用，上线不需要，简写-D  webpack  webpack -d： 开发环境，不压缩代码 webpack -p： 默认，上线环境，压缩为一行代码 &ndash;watch： 监听文件实时改变，在webpack -d/webpack -p 后面加上&ndash;watch就能实时监听，不需要改变一次又需要webpack编译一次  </div>	
+		
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://shellingfordly.github.io/article/study/%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+  </h1>
+  <time datetime="2019-09-26T11:41:26&#43;0800" class="post-date">Thu, Sep 26, 2019</time>
+	<div class="my-article">面试题 纯函数  相同的输入，永远得到相同的输出，不能改变外界的状态
+ 例子：slice()
+const arr = [1,2,3,4,5,6,7,8,9] // 结果都一样 console.log(arr.slice(1,3)) console.log(arr.slice(1,3)) console.log(arr.slice(1,3)) console.log(arr.slice(1,3)) // 结果不一样 console.log(arr.splice(1,3)) console.log(arr.splice(1,3))  偏函数 partial  概念：固定一个函数的一个或者多个参数，然后返回一个新函数。新函数接收需要传入的参数，新函数返回传参原始函数 作用：固定重复输入的参数，减少输入的次数
+function add(a,b){ return a+b } // 接收入参函数，返回新函数 function partial(fn,a){ return function(b){ // this 指向obj return fn.call(this,a,b) } } const parAdd = partial(add, 1) con obj = {} obj.parAdd = parAdd // 结果： 4 console.log(obj.parAdd(3))   高阶函数  概念：能接收函数作为参数，同时返回值可以是函数的函数  柯里化函数 currying  概念：把一个多参的函数fn(n)转换为n个单参函数fn()()()&hellip; 目的：为了缩小适用范围，创建一个针对性更强的函数 优点：复用性，延迟计算</div>	
+		
+  <div class="read-more-link">
+    <a href="/article/study/%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/">Read More…</a>
+  </div>
+  
 </article>
 </div>
     </main>

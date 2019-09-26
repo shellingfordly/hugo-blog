@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JS-DOM &middot; ShellingfordLY</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://shellingfordly.github.io/"><h1>ShellingfordLY</h1></a>
+      <p class="lead">
+       这里是ShellingfordLY的个人博客 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://shellingfordly.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>JS-DOM</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
+
+<h1 id="dom-document-object-model-文档对象模型">DOM(document object model)文档对象模型</h1>
+
+<p>文档对象模型是表示和操作HTML、XML文档内容的基础API</p>
+
+<p>当网页被加载时，浏览器会根据DOM模型将文档解析成一系列节点，构成了一个树状结构。</p>
+
+<p><img src="https://7n.w3cschool.cn/attachments/image/20170619/t_document.png" alt="image" /></p>
+
+<p>图中每一个方框都是一个节点，表示一个node对象，所有的node构成了DOM Tree</p>
+
+<h4 id="节点有7个类型">节点有7个类型</h4>
+
+<ul>
+<li><strong>Document：整个文档树的顶层节点</strong></li>
+<li>DocumentType：比如&lt;!DOCTYPE html&gt;</li>
+<li><strong>Element：网页的各种HTML标签</strong></li>
+<li>Attribute：网页元素的属性</li>
+<li>Text：标签之间或标签包含的文本</li>
+<li>Comment：注释</li>
+<li>DocumentFragment：文档片段</li>
+</ul>
+
+<h4 id="通过css选择器选取元素">通过CSS选择器选取元素</h4>
+
+<pre><code>document.querySelectorAll('.div');   //选择所有class为div的元素
+document.querySelectorAll('[data-tip=&quot;title&quot;]');    //选择所有data-tip为title的元素
+document.querySelectorAll('div:not(.ignore)');  //选择所有claa不为ignore的div元素
+</code></pre>
+
+<p>不支持伪元素的选择器，比如：first-line和first-letter；也不支持伪类的选择器，比如：link和：visited。</p>
+
+<h2 id="文档结构的遍历">文档结构的遍历</h2>
+
+<blockquote>
+<p>Document对象、它的Element对象和文档中表示文本的Text对象都是Node对象。</p>
+</blockquote>
+
+<h4 id="node属性">Node属性：</h4>
+
+<ul>
+<li>parentNode</li>
+</ul>
+
+<p>作为<strong>元素树</strong>遍历，只遍历Element对象，不包含Text和Comment对象
+- children：返回NodeList对象，children列表只包含Element对象。（下同）
+- nextElementChild、lastElementChild
+- nextElementSibling、previousElementChild
+- childElementCount：返回子元素数量，同children.length
+- offsetParent：返回最靠近当前元素的父元素，且此父元素position不为static</p>
+
+<p>作为<strong>节点树</strong>遍历，因此会有Text和Comment对象。@不推荐🤮
+- childNodes：返回只读类数组对象(NodeList对象)，包含Text和Comment。
+- firstChild、lastChild：分别返回第一个子节点、最后一个子节点，同样包含Text和Comment
+- nextSibling、previousSibling：分别返回下一个兄弟节点、前一个兄弟节点，包含Text和Comment
+- textContent：返回该节点和它所有后代节点的文本内容
+- nodeType：返回该节点类型代号-number
+- nodeName：返回该节点类型名称-string
+- nodeValue：返回Text和Comment的文本内容，其他类型的节点将返回null</p>
+
+<h3 id="nodelist和htmlcollection">NodeList和HTMLCollection</h3>
+
+<p>NodeList实例对象可能是动态集合也可能是静态集合。DOM Tree 每新增或删除一个节点，都可以反映在NodeList接口中。NodeList实例对象提供length属性和数字索引，但不能使用pop（）、push（）之类数组特有的方法。</p>
+
+<p>HTMLCollection实例对象同NodeList实例对象，也是节点的集合，返回类数组对象。</p>
+
+<p>HTMLDocument类中，有一些属性可以快捷访问节点。比如images、forms、links属性指向类数组<img>、<form>、<a>元素集合，返回的都是HTMLCollection实例对象。</p>
+
+<pre><code>graph LR
+A(HTMLDocument类)--&gt;B(.images)
+B--&gt;BB(&lt;.img&gt;元素集合)
+A--&gt;C(.links)
+C--&gt;CC(&lt;.a href=''&gt;元素集合)
+A--&gt;D(.forms)
+D--&gt;DD(&lt;.form&gt;元素集合)
+A--&gt;E(.scripts)
+E--&gt;EE(&lt;.script&gt;元素集合)
+A--&gt;F1(.embeds或.plugins)
+F1--&gt;FF(&lt;.embed&gt;元素集合)
+
+BB--&gt;Z(HTMLCollection对象)
+CC--&gt;Z
+DD--&gt;Z
+EE--&gt;Z
+FF--&gt;Z
+</code></pre>
+
+<p><strong>注</strong>:HTMLDocument是类名，调用的是类的实例如document</p>
+
+<pre><code>document.forms.length   //返回document文档里&lt;form&gt;个数
+document.doby   //返回&lt;body&gt;
+document.head   //返回&lt;html&gt;
+document.documentElement    //返回&lt;html&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HTMLDocument</th>
+<th>NodeList</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>节点类型</td>
+<td>Element</td>
+<td>Element、Text、Comment</td>
+</tr>
+
+<tr>
+<td>实例对象</td>
+<td>只能是动态集合</td>
+<td>可动态可静态</td>
+</tr>
+
+<tr>
+<td>索引方式</td>
+<td>可数字还可class、id</td>
+<td>只能数字索引</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="文档的内容">文档的内容</h2>
+
+<p>innerHTML：返回当前元素包含的Element+Text，可读可写</p>
+
+<p>outerHTML:返回当前元素及当前元素包含的Element+Text，可读可写</p>
+
+<p>textContext：返回当前元素中所有后代节点的所有纯文本，可读可写。若写的内容包含Element，如&lt;.span&gt;，文档节点不会改动，因为此时&lt;.span&gt;被当作纯文本处理而不是标签。</p>
+
+<pre><code>&lt;div id=&quot;div&quot;&gt;&lt;p&gt;123&lt;/p&gt;&lt;/div&gt;
+var d = document.getElementById('div');
+d.innerHTML  // &quot;&lt;p&gt;123&lt;/p&gt;&quot;
+d.outerHTML // &quot;&lt;div id=&quot;div&quot;&gt;&lt;p&gt;123&lt;/p&gt;&lt;/div&gt;&quot;
+/*写innerHTML*/
+d.innerHTML = '&lt;span&gt;99&lt;/span&gt;'
+// &lt;div id=&quot;div&quot;&gt;&lt;span&gt;99&lt;/span&gt;&lt;/div&gt;
+//标签被换了
+</code></pre>
+
+<p>insertAdjacentHTML(beforebegin|afterbegin|beforeend|afterend,&lsquo;tag&rsquo;)</p>
+
+<p>此方法可将HTML标记符插入到指定元素的指定位置，第一个参数为插入的位置，第二个参数为要插入的标签名称
+<img src="https://7n.w3cschool.cn/attachments/image/20170619/t_insertAdjacentHTML.png" alt="image" />
+document.createElement(&lsquo;tag&rsquo;)：创建一个标签</p>
+
+<p>document.createTextNode(&lsquo;these are some text ~&lsquo;)：创建文本节点</p>
+
+<p>createAttribute(&lsquo;attribute&rsquo;,&lsquo;value&rsquo;);   为一个标签创建属性</p>
+
+<p>cloneNode(&lsquo;tag&rsquo;,true|false); 复制一个标签，第二个参数可选，默认false（不复制子标签）</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>appendChild(new)</th>
+<th>insertBefore(new,old)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>相同点</td>
+<td>都是在子元素列表中插入元素</td>
+<td></td>
+</tr>
+
+<tr>
+<td>不同点</td>
+<td>在子元素列表的最后插入</td>
+<td>在old元素前面插入new</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>注</strong>：如果要插入的节点是已存在与文档中，那么将从原来的位置移除插到指定位置。</p>
+
+<p>parentNode.removeChild(childnode)：父元素调用此方法删除一个子元素</p>
+
+<p>parentNode.replaceChild(newNode,oldNode)：父元素调用此方法，替换掉一个不需要的子元素。
+&gt; DocumentFragment是一种特殊的Node，它作为其他节点的一个临时的容器。DocumentFragment是独立的，而不是任何其他文档的一部分。它的parentNode总是为null。但类似Element，它可以有任意多的子节点，也可以使用appendChild()等方法。</p>
+
+<p>DocumentFragment的特殊之处在于它使得一组节点被当做一个节点看待。</p>
+
+<pre><code>var frag = docment.createDocumentFragment();
+</code></pre>
+
+<h2 id="坐标-尺寸">坐标、尺寸</h2>
+
+<p>getBoundingClienRect()：返回一个rectangle对象，此对象有width、height、left、right、top、bottom</p>
+
+<p>由于元素的默认position为static，是相对于viewport的（视口：实际显示DOM文档的部分——不包括浏览器的标签栏、搜索栏等），因此会随着页面滚动变化。实现位置固定的一种方法：left+window.scollX, top+window.scollY</p>
+
+<p>elementFromPoint(X,Y)：返回在指定位置的一个元素</p>
+
+<p>Element.scrollLeft属性表示网页元素的水平滚动条向右侧滚动的像素数</p>
+
+<p>Element.scoollTop属性表示网页元素的垂直滚动条向下滚动的像素数</p>
+
+<pre><code>//查看整张网页的水平的和垂直的滚动距离
+document.body.scrollLeft 
+document.body.scrollTop
+//这两个属性都可读可写
+</code></pre>
+
+<p>还可以用scrollBy(X, Y )控制网页的滚动</p>
+
+<p>所有元素都有clientWidth、clientHeight属性，值为width+padding，不包含border、margin、滚动条</p>
+
+<pre><code>//没有垂直滚动条时 
+document.documentElement.clientHeight === window.innerHeight // true  
+</code></pre>
+
+<blockquote>
+<p>对于&lt;.i&gt;、&lt;.code&gt;和&lt;.span&gt;这些内联元素，clientWidth和clientHeight总是0</p>
+</blockquote>
+
+<p>scollWidth、scollHeight属性，值也是width+padding，但包括溢出内容的width</p>
+
+<p>offsetWidth为clientWidth+border</p>
+
+<h4 id="document属性">Document属性</h4>
+
+<ul>
+<li>domain    当前文档的域名</li>
+<li>lastModified  文档修改时间的字符串</li>
+<li>location  与window对象的located属性引用同一个location对象</li>
+<li>referree  返回一个字符串，表示访问本文档的来源。如果无法获取来源或用户直接键入网址，则返回空字符串</li>
+<li>title title节点之间的内容可读写</li>
+<li>doctype   document两个子节点的第一个子节点&lt;!DOCTYPE html&gt;</li>
+<li>documentElement   document两个子节点的第二个子节点&lt;.html&gt;</li>
+<li>defaultview   返回window对象</li>
+<li>activeElement 返回文档中当前获得焦点的那个元素</li>
+<li>characterset  返回渲染当前文档的字符集</li>
+
+<li><p>readyState    返回当前文档状态1loading加载HTML2interactive加载外部资源3complete加载完成</p>
+
+<h4 id="document方法">Document方法</h4></li>
+
+<li><p>write()   writerIn()</p></li>
+</ul>
+
+<p>可为标签设置contenteditable属性为true使其可被编辑</p>
+
+<h4 id="execcommand-acommandname-ashowdefaultui-avalueargument">execCommand（aCommandName, aShowDefaultUI, aValueArgument）</h4>
+
+<p>功能：插入元素、改变样式</p>
+
+<h2 id="html属性">HTML属性</h2>
+
+<ul>
+<li>getAttribute(&lsquo;attr&rsquo;)  返回属性值</li>
+<li>seAttribute(&lsquo;attr&rsquo;, &lsquo;value&rsquo;) 为元素新增/修改属性</li>
+<li>hasAttribute(&lsquo;attr&rsquo;)  判断某元素是否有某属性，返回布尔值</li>
+<li>removeAttribute(&lsquo;attr&rsquo;)   为元素移除属性</li>
+</ul>
+
+<h4 id="数据集-dataset-属性">数据集（dataset）属性</h4>
+
+<p>在HTML5文档中，任意以&rsquo;data-&lsquo;为前缀的小写属性都是合法的</p>
+
+<p>Element有一个dataset属性，Element.dataset对应一个对象，这个对象的属性对应于&rsquo;data-&lsquo;后面的部分，如果有多个-则用驼峰命名。</p>
+
+<pre><code>&lt;div id=&quot;top&quot; data-tip=&quot;title&quot;&gt;&lt;/div&gt;
+
+var t=document.getElementById('top');
+t.dataset.tip  //title
+t.dataset.tip = 'title2'//该属性是实时双向的，任何改变都会影响标签原属性
+</code></pre>
+
+<h4 id="attribute属性是只读类数组对象-索引方式有多种">attribute属性是只读类数组对象，索引方式有多种</h4>
+
+<pre><code>document.body.attributes[0]  //&lt;body&gt;元素的第一个属性
+document.body.attributes.bgcolor // &lt;body&gt;元素的bgcolor属性
+document.body.attributes['ONLOAD']  // &lt;body&gt;元素的onload属性。
+//同时，属性节点又有name(nodeName)和value（nodeValue）的属性
+&lt;div id=&quot;top&quot;&gt;&lt;/div&gt;
+var t = document.getElemntById('top');
+t.attributes[0].name  // &quot;id&quot;
+t.attributes[0].nodeName // &quot;id&quot;
+t.attributes[0].value  // &quot;top&quot;
+t.attributes[0].nodeValue // &quot;top&quot;
+</code></pre>
+
+<h2 id="css">CSS</h2>
+
+<p>Element.style返回的值是一个CSSStyleDeclaration</p>
+
+<pre><code>&lt;div id=&quot;top&quot;&gt;&lt;/div&gt;
+var t = document.getElementById('top');
+t.style.color = 'red';
+//或
+t.setAttribute('style','background:red;');
+</code></pre>
+
+<p>style对象的cssText也可以用来读写或删除整个style属性。</p>
+
+<pre><code>t.style.cssText = 'background:red';
+</code></pre>
+
+<p><strong>写法注意</strong></p>
+
+<p>1.float在JS中是关键字，因此要写  style.cssFloat</p>
+
+<p>2.border-left-width要写 borderLeftWidth</p>
+
+<p>三个方法的第一个参数，都是CSS属性名，且不用改写连词线。</p>
+
+<pre><code>t.style.setProperty('background-color','red');
+t.style.getPropertyValue('background-color');
+t.style.removeProperty('background-color');
+</code></pre>
+
+<h4 id="window-getcomputedstyle">window.getComputedStyle()</h4>
+
+<p>可以用来获取CSS伪对象伪元素的样式，第一个参数是元素，第二个参数通常为null或空字符串，但也可以是 :before :after :first-line first-letter</p>
+
+<pre><code>&lt;style&gt;
+  #top{ line-height:30px;}
+  #top:before{content:'before';color:red};
+&lt;/style&gt;
+&lt;div id=&quot;top&quot; style=&quot;background:red&quot;&gt;&lt;/div&gt;
+var t = document.getElementById('top');
+window.getComputedStyle(t,null).lineHeight  //30px 去掉连字符
+window.getComputedStyle(t,null).getPropertyValue('line-height');  //30px，无需去掉连字符
+window.getComputedStyle(t,':before').content  // &quot;before&quot;
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

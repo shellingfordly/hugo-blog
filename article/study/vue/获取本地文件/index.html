@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tags &middot; ShellingfordLY</title>
+  <title>Vue &middot; ShellingfordLY</title>
 
   
   <link type="text/css" rel="stylesheet" href="http://shellingfordly.github.io/css/print.css" media="print">
@@ -23,7 +23,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://shellingfordly.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="ShellingfordLY" />
   
 </head>
 
@@ -49,9 +48,45 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <div class="post">
+  <h1>Vue</h1>
+  <time datetime=2019-09-26T11:41:26&#43;0800 class="post-date">Thu, Sep 26, 2019</time>
+  
 
-</ul>
+<h1 id="在vue实例中获取本地文件数据">在vue实例中获取本地文件数据</h1>
+
+<pre><code>methods: {
+  readFile(filePath) {
+    // 创建一个新的xhr对象
+    let xhr = null
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest()
+    } else {
+      // eslint-disable-next-line
+      xhr = new ActiveXObject('Microsoft.XMLHTTP')
+    }
+    const okStatus = document.location.protocol === 'file' ? 0 : 200
+    xhr.open('GET', filePath, false)
+    xhr.overrideMimeType('text/html;charset=utf-8')
+    xhr.send(null)
+    return xhr.status === okStatus ? xhr.responseText : null
+  },
+},
+created() {
+	this.msg = this.readFile('./xxx/xxx/xxx.xxx')
+	console.log(this.msg)
+}
+
+&lt;!-- 
+	参考原博主：SilenceJude
+	参考原博文链接：https://blog.csdn.net/SilenceJude/article/details/97002176
+ 
+ --&gt;
+</code></pre>
+
+</div>
+
+
     </main>
 
     
